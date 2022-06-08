@@ -11,17 +11,6 @@ namespace datastructure
         { 
 
             Pallendron pallendron = new Pallendron();
-            //pallendron.stringPallendrion();
-            //pallendron.countRepeatedNoInArray();
-            //pallendron.countRepeatedStringInArray();
-            // pallendron.countWordInSentence();
-            //pallendron.combinationUtil();
-            // pallendron.reverseArray(); 
-
-
-            //Matrix ms = new   Matrix();
-            //ms.matrixMultiplication();
-
             arraycode arraycode = new arraycode();
             //arraycode.firstRepeatedoccureanceIndex();
             // arraycode.MaximumProductSubarray(); 
