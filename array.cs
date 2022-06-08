@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace datastructure
 {
-   public class arraycode
+    public class arraycode
     {
         /*
          * Input:
@@ -20,25 +21,25 @@ namespace datastructure
             int[] array = { 10, 2, 4, 5, 0, 2, 3 };
             int arraySize = array.Length;
             int count = 0;
-            for (int i=0;i< arraySize; i++)
+            for (int i = 0; i < arraySize; i++)
             {
-                for (int j=i+1;j<arraySize;j++)
+                for (int j = i + 1; j < arraySize; j++)
                 {
-                    if (i != j && array[i]== array[j] )
+                    if (i != j && array[i] == array[j])
                     {
                         count++;
-                        Console.Write("first repeated Index {0} and value {1}",  i, array[i]);
+                        Console.Write("first repeated Index {0} and value {1}", i, array[i]);
                         break;
-                    }                   
-                   
+                    }
+
                 }
-                if(count>0)
+                if (count > 0)
                 {
                     break;
                 }
-                
+
             }
-            if(count==0)
+            if (count == 0)
             {
                 Console.Write("first repeated Index -1");
             }
@@ -66,31 +67,31 @@ namespace datastructure
             int[] arr = { 2, 3, 4, 5, -1, 0 };
             int arrSize = arr.Length;
             int result = 0;
-            for(int i=0;i< arrSize; i++)
+            for (int i = 0; i < arrSize; i++)
             {
                 int mul = arr[i];
                 // Traversing in current subarray
                 for (int j = i + 1; j < arrSize; j++)
                 {
- 
-                        // Updating result every time
-                        // to keep an eye over the
-                        // maximum product
-                        result = Math.Max(result, mul);
-                        mul *= arr[j];                   
+
+                    // Updating result every time
+                    // to keep an eye over the
+                    // maximum product
+                    result = Math.Max(result, mul);
+                    mul *= arr[j];
                 }
             }
-            Console.WriteLine($"Maximum Product Subarray {result}"); 
+            Console.WriteLine($"Maximum Product Subarray {result}");
 
         }
         public void repeatWordInSentence(string sentence)
         {
             string[] word = sentence.Split(' ');
-            int i, j,count=0;
+            int i, j, count = 0;
             List<string> words = new List<string>();
-            for (i = 0; i < word.Length-1; i++)
+            for (i = 0; i < word.Length - 1; i++)
             {
-                for(j= i+1; j < word.Length; j++)
+                for (j = i + 1; j < word.Length; j++)
                 {
                     if (word[i] == word[j])
                     {
@@ -98,150 +99,149 @@ namespace datastructure
                     }
                     //break;
                 }
-               
-                if(count > 0)
-                words.Add(word[i]+":"+count);
+
+                if (count > 0)
+                    words.Add(word[i] + ":" + count);
                 count = 0;
             }
 
-            for(int k= 0; k < words.Count; k++)
+            for (int k = 0; k < words.Count; k++)
             {
-                Console.WriteLine("{0}",words[k]);
+                Console.WriteLine("{0}", words[k]);
             }
 
 
         }
 
         public void removeDuplicateintValue()
+        {
+            HashSet<int> hashset = new HashSet<int>();
+
+            //int[] arr = new int[5];
+            int[] arr = { 10, 2, 3, 3, 2 };
+            //step -1
+            for (int i = 0; i < arr.Length; i++)
             {
-                HashSet<int> hashset = new HashSet<int>();
-               
-                //int[] arr = new int[5];
-                int[] arr = { 10, 2, 3, 3, 2 };          
-                //step -1
-                for (int i = 0; i < arr.Length; i++)
+                for (int K = 0; K < arr.Length; K++)
                 {
-                    for (int K = 0; K < arr.Length; K++)
+                    if (arr[i] != arr[K])
                     {
-                        if (arr[i] != arr[K])
-                        {
-                            hashset.Add(arr[i]);
-                            break;
-                        }
+                        hashset.Add(arr[i]);
+                        break;
                     }
-                }
-                foreach (var items in hashset)
-                {
-                    Console.WriteLine(items);
-                }
-
-
-                
-                //step 2
-                int[] distinct = arr.Distinct().ToArray();
-                foreach (var items in distinct)
-                {
-                    Console.WriteLine(items);
-                }
-               
-                //step 2
-                int count = 0; 
-                int n = arr.Length;
-                int[] arrtemp = new int[n];
-                List<int> lst = new List<int>();
-                for (int i = 0; i < n; i++)
-                {
-                    int j;
-                    for (j = 0; j < count; j++)
-                    {
-                        if (arr[i] == arr[j])
-                            break;
-                    }
-                    if (j == count)
-                    {
-                        // temp[count] = arr[i];
-                        lst.Add(arr[i]);
-                        count++;
-                    }
-                }
-
-                Console.WriteLine("printing----");
-                foreach (var items in lst)
-                {
-                    Console.WriteLine(items);
                 }
             }
+            foreach (var items in hashset)
+            {
+                Console.WriteLine(items);
+            }
+
+
+
+            //step 2
+            int[] distinct = arr.Distinct().ToArray();
+            foreach (var items in distinct)
+            {
+                Console.WriteLine(items);
+            }
+
+            //step 2
+            int count = 0;
+            int n = arr.Length;
+            int[] arrtemp = new int[n];
+            List<int> lst = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                int j;
+                for (j = 0; j < count; j++)
+                {
+                    if (arr[i] == arr[j])
+                        break;
+                }
+                if (j == count)
+                {
+                    // temp[count] = arr[i];
+                    lst.Add(arr[i]);
+                    count++;
+                }
+            }
+
+            Console.WriteLine("printing----");
+            foreach (var items in lst)
+            {
+                Console.WriteLine(items);
+            }
+        }
 
         public void removeDuplicateStringValue()
+        {
+            //String
+            HashSet<string> hashset1 = new HashSet<string>();
+            string[] arr1 = { "qw", "qw", "pp", "qw", "pp", "ee" };
+            //step -1
+            for (int i = 0; i < arr1.Length; i++)
             {
-                //String
-                HashSet<string> hashset1 = new HashSet<string>();
-                string[] arr1 = { "qw", "qw", "pp", "qw", "pp", "ee" };
-                //step -1
-                for (int i = 0; i < arr1.Length; i++)
+                for (int K = 0; K < arr1.Length; K++)
                 {
-                    for (int K = 0; K < arr1.Length; K++)
+                    if (arr1[i] != arr1[K])
                     {
-                        if (arr1[i] != arr1[K])
-                        {
-                            hashset1.Add(arr1[i]);
-                            break;
-                        }
+                        hashset1.Add(arr1[i]);
+                        break;
                     }
-                }
-                Console.WriteLine("1. calculation----");
-                foreach (var items in hashset1)
-                {
-                    Console.WriteLine(items);
-                }
-
-                //step 2
-
-                string[] distinct1 = arr1.Distinct().ToArray();
-                Console.WriteLine("2. calculation----");
-                foreach (var items in distinct1)
-                {
-                    Console.WriteLine(items);
-                }
-
-                //step 3
-                int count = 0;
-                string[] arr = { "qw", "qw", "pp", "qw", "pp", "pp","qw","ee","kk","ee","ee","ee" };
-                int n = arr.Length;
-                string[] arrtemp = new string[n];
-                List<string> lst = new List<string>();
-                for (int i = 0; i < arr.Length; i++)
-                 {
-                    int j;
-                    for (j = 0; j < count; j++)
-                    {
-                        if (arr[i] == arr[j])
-                        {
-                            if (i > j)
-                            {
-                                count++;
-                                
-                            }
-                            break;
-                        }
-                    }
-                  
-
-                    if (j == count)
-                    {
-                        // temp[count] = arr[i];
-                        lst.Add(arr[i]);
-                        count++;
-                    } 
-                }
-
-                Console.WriteLine("printing----");
-                foreach (var items in lst)
-                {
-                    Console.WriteLine(items);
                 }
             }
-             
+            Console.WriteLine("1. calculation----");
+            foreach (var items in hashset1)
+            {
+                Console.WriteLine(items);
+            }
+
+            //step 2
+
+            string[] distinct1 = arr1.Distinct().ToArray();
+            Console.WriteLine("2. calculation----");
+            foreach (var items in distinct1)
+            {
+                Console.WriteLine(items);
+            }
+
+            //step 3
+            int count = 0;
+            string[] arr = { "qw", "qw", "pp", "qw", "pp", "pp", "qw", "ee", "kk", "ee", "ee", "ee" };
+            int n = arr.Length;
+            string[] arrtemp = new string[n];
+            List<string> lst = new List<string>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int j;
+                for (j = 0; j < count; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        if (i > j)
+                        {
+                            count++;
+
+                        }
+                        break;
+                    }
+                }
+
+
+                if (j == count)
+                {
+                    // temp[count] = arr[i];
+                    lst.Add(arr[i]);
+                    count++;
+                }
+            }
+
+            Console.WriteLine("printing----");
+            foreach (var items in lst)
+            {
+                Console.WriteLine(items);
+            }
         }
+
     }
 }

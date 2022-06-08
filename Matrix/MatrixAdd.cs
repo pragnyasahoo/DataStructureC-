@@ -11,10 +11,13 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
-namespace datastructure
+
+namespace datastructure.Matrix
 {
-    class MatrixAdd
-    {
+    internal class MatrixAdd
+    { 
+    
+        //code is not done
 
         /*
         * Complete the 'diagonalDifference' function below.
@@ -23,20 +26,20 @@ namespace datastructure
         * The function accepts 2D_INTEGER_ARRAY arr as parameter.
         */
 
-        public static int diagonalDifference(List<List<int>> arr)
+        private int diagonalDifference(List<List<int>> arr)
         {
 
             for (int i = 0; i < arr.Count; i++)
             {
-                System.Console.WriteLine(arr[i]);
+                Console.WriteLine(arr[i]);
             }
             return arr.Count;
         }
 
         public void load()
         {
-           /* TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);*/
-
+            /* TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);*/
+            Console.WriteLine("Enter a number ");
             int n = Convert.ToInt32(Console.ReadLine().Trim());
 
             List<List<int>> arr = new List<List<int>>();
@@ -46,12 +49,18 @@ namespace datastructure
                 arr.Add(Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList());
             }
 
-            int result = MatrixAdd.diagonalDifference(arr);
+            int result = diagonalDifference(arr);
 
-           /* textWriter.WriteLine(result);
+            /* textWriter.WriteLine(result);
 
-            textWriter.Flush();
-            textWriter.Close();*/
+             textWriter.Flush();
+             textWriter.Close();*/
+        }
+
+        static void Main(string[] args)
+        {
+            MatrixAdd matrixAdd = new MatrixAdd();
+            matrixAdd.load();
         }
 
     }
