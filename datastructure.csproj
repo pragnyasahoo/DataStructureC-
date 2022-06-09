@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>datastructure.ArrayProj.CountRepeatedNoInArray</StartupObject>
+    <StartupObject>datastructure.StringOperation.RepeatWordInSentence</StartupObject>
   </PropertyGroup>
 
 </Project>

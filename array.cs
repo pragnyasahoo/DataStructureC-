@@ -46,72 +46,8 @@ namespace datastructure
 
         }
 
-        public void MaximumProductSubarray()
-        {
-            /*
-             * Input:
-                N = 5
-                Arr[] = {6, -3, -10, 0, 2}
-                Output: 180
-                Explanation: Subarray with maximum product
-                is 6, -3, -10 which gives product as 180.
-
-                Input:sum
-                N = 6
-                Arr[] = {2, 3, 4, 5, -1, 0}
-                Output: 120
-                Explanation: Subarray with maximum product
-                is 2, 3, 4, 5 which gives product as 120.
-             */
-
-            int[] arr = { 2, 3, 4, 5, -1, 0 };
-            int arrSize = arr.Length;
-            int result = 0;
-            for (int i = 0; i < arrSize; i++)
-            {
-                int mul = arr[i];
-                // Traversing in current subarray
-                for (int j = i + 1; j < arrSize; j++)
-                {
-
-                    // Updating result every time
-                    // to keep an eye over the
-                    // maximum product
-                    result = Math.Max(result, mul);
-                    mul *= arr[j];
-                }
-            }
-            Console.WriteLine($"Maximum Product Subarray {result}");
-
-        }
-        public void repeatWordInSentence(string sentence)
-        {
-            string[] word = sentence.Split(' ');
-            int i, j, count = 0;
-            List<string> words = new List<string>();
-            for (i = 0; i < word.Length - 1; i++)
-            {
-                for (j = i + 1; j < word.Length; j++)
-                {
-                    if (word[i] == word[j])
-                    {
-                        count++;
-                    }
-                    //break;
-                }
-
-                if (count > 0)
-                    words.Add(word[i] + ":" + count);
-                count = 0;
-            }
-
-            for (int k = 0; k < words.Count; k++)
-            {
-                Console.WriteLine("{0}", words[k]);
-            }
-
-
-        }
+       
+       
 
         public void removeDuplicateintValue()
         {
